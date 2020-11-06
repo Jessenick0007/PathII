@@ -10,7 +10,7 @@
 #    endofgame = input("You are out of health, you died.")
 #    sys.exit()
 
-
+squirrel = "walk"
 health = 50
 
 print ("Welcome to Path II")
@@ -18,6 +18,8 @@ name = input("What is your name?")
 print ("Hi", name + ".")
 weapon = input("Choose your weapon. (Big Axe/Sword/Spear)").lower()
 print ("Nice, a", weapon, "is a good choice.")
+
+# Part One
 
 firstchoice = input("You wake up in a forest. You can either go down the path or go to the tree with a face. (Path/Tree)").lower()
 if firstchoice == "path":
@@ -29,6 +31,8 @@ if firstchoice == "path":
 elif firstchoice == "tree":
     print ("The tree sneezes on you and tells you that you have been cursed with root rot.")
     print ("You turn around and continue on to the path.")
+
+# Part Two
 
 part2 = input("You walk up to a tent on the side of the path. Do you search it? (Yes/No)" ).lower()
 if part2 == "yes":
@@ -47,6 +51,8 @@ if part2 == "yes":
         print ("You lose 3 health.")
         health -= 3
         print ("Your health is now ", health, ".", sep="")
+
+# Part three
 
 print ("Continuing on the path and you happen upon an old woman with a bag.")
 part3 = input("Do you talk to the woman, attempt to steal her bag or continue on your way? (Talk/Steal/Walk)" ).lower()
@@ -83,12 +89,14 @@ elif part3 == "steal":
         part3_end = input("Your vison slowly fades away along with every other sense in your body.")
         sys.exit()
 
-print ("Oh whats this? Ah yes a  decapitated dog carcass. Hmmm... You are hungry...")
+# Part Four
+
+print ("Whats this? Ah yes a  decapitated dog carcass. Hmmm... You are hungry...")
 if squirrel == "kill":
-    print ("But you decide to instead eat the that dead squirrel from earlier. Yum Yum.")
+    print ("But you decide to instead eat that dead squirrel from earlier. Yum Yum.")
     health += 3
-    print("Your health is now ", health, ".", sep="")
-else:
+    print ("Your health is now ", health, ".", sep="")
+elif squirrel == "walk":
     dog_carcass = input("Do you... Ya know... Take a bite?? (Yes/No)").lower()
     if dog_carcass == "yes":
         print ("You slowly take a bit.. Tastes good, kinda like jerky.")
@@ -98,10 +106,118 @@ else:
         if health <= 0:
             endofgame = input("You are out of health, you died.")
             sys.exit()
-        print("Your health is now ", health, ".", sep="")
+        print ("Your health is now ", health, ".", sep="")
     elif dog_carcass == "no":
-        print("I mean your loss. Now it is just gonna go to waste.")
+        print ("I mean your loss. Now it is just gonna go to waste.")
 
+# Root Rot?
+
+if firstchoice == "tree":
+    print ("You feel your feet begining to become soggy yet stiff.")
+    print ("You lose like, Idk 12 health? Maybe just 7. Yeah 7.")
+    health -= 7
+    if health <= 0:
+        endofgame = input("You are out of health, you died.")
+        sys.exit()
+    print ("Your health is now ", health, ".", sep="")
+
+# Part Five
+
+print ("Here you are just walking along when out of the corner of your eye you spot him.")
+part5 = input("It is Shia Labeouf. Do you run away or attempt to talk to this superstar? (Run/Talk)").lower()
+if part5 == "talk":
+    print ('"Ello there bruv, itsa meee She Boof. Ears ah spot of rum for yah!"')
+    print ("You quickly drink the rum as superstar Shia Labeouf skips off into the distance.")
+    health += 11
+    print ("You feel so much better. Your health is now ", health, ".", sep="")
+else:
+    print ("Shia is offended that you would run away from him. He uses tail whip.")
+    health -= 11
+    print ("It is somewhat effective. Your health is now ", health, ".", sep="")
+
+# Part Six
+
+print ("Walking through some saloon like doors between two trees you come across a priest, a rabbit and a volkswagen.")
+part6 = input("Which do you talk to? (Priest/Rabbit/Volkswagen)").lower()
+
+if part6 == "volkswagen":
+    print ("You can't had a reasonable conversation with a car.")
+    health -= 13
+    if health <= 0:
+        endofgame = input("You are out of health, you died.")
+        sys.exit()
+    print ("Your health is now ", health, ".", sep="")
+
+elif part6 == "priest":
+    print ("You wake up the next day sore in all the wrong places... Where even are you?")
+    health -= 12
+    if health <= 0:
+        endofgame = input("You are out of health, you died.")
+        sys.exit()
+    print ("Your health is now ", health, ".", sep="")
+
+else:
+    print ("You go up to talk to the rabbit, but before you can get a word out he runs off.")
+    print ("I mean it's a rabbit. Did you really think it would entertain you with some witty dialog?")
+
+# Part Seven
+
+print ("All of a sudden you are attacked by a wild INCEL.")
+if weapon == "big axe":
+    print ("You swing you axe at his lumpy torso dealing quite a bit of damage.")
+    print ("The wild INCEL wimpers away leaving you unharmed. Way to go.")
+
+elif weapon == "sword":
+    print ("You go to stab the grumpy looking fool but he takes fencing lessons in his free time.")
+    print ("He deflects your stab and slices off your manhood... Unless your a lady then you now have no tits...")
+    health -= 17
+    if health <= 0:
+        endofgame = input("You are out of health, you died.")
+        sys.exit()
+    print ("Your health is now ", health, ".", sep="")
+    print ("He now feels pity for you and you are free to go if you please.")
+    part7 = input("Do you fight him or whimper away like a coward? (Fight/Whimper)").lower()
+    if part7 == "fight":
+        print ("You stupidly attempt to slash his greesy shoulder but he just simply moves out of the way.")
+        print ("Blood starts draining faster out of your body than before from the strain of the attack.")
+        health -= 7
+        if health <= 0:
+            endofgame = input("You are out of health, you died.")
+            sys.exit()
+        print ("Your health is now ", health, ".", " The moley man just walks away unscathed.", sep="")
+
+else:
+    print ("You go to stab the hairy figure with your spear but he just shoots you in the leg with a glock.")
+    health -= 14
+    if health <= 0:
+        endofgame = input("You are out of health, you died.")
+        sys.exit()
+    print ("You have unestimated this hellish looking male. He leaves you be out of disgust for your lack of skill with your spear.")
+    print ("Your health is now ", health, ".", sep="")
+
+# Part Eight
+
+print ("Well ", name, ", you have been walking for some time now. Not running into s single thing...", sep="")
+part8 = input("You are bored. Do you draw in the dirt, play with your weapon or just sit there. (Draw/Play/Sit)").lower()
+if part8 == "draw":
+    print ("You draw various things in the dirt. This brings you out of your funk and are now ready to continue on.")
+
+elif part8 == "play":
+    print ("You start throwing your", weapon, "in the air but it lands on your hand.")
+    health -= 9
+    print ("You now are missing your pinky.")
+    if health <= 0:
+        endofgame = input("You are out of health, you died.")
+        sys.exit()
+    print ("Your health is now ", health, ".", sep="")
+
+else:
+    print ("You sit there bored as all get out. So bored you feel sick to your stomach.")
+    health -= 14
+    if health <= 0:
+        endofgame = input("Congratulations you have died of boredom.")
+        sys.exit()
+    print ("Your health is now ", health, ".", sep="")
 
 
 
