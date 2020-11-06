@@ -78,7 +78,7 @@ elif part3 == "steal":
     print ('"I am not one to be toyed with wastelander. You would be better off against an ogre."')
     health -= 25
     if health <= 0:
-        endofgame = input("You are out of health, you died.")
+        endofgame = input("You are out of health, you died from a slap to the wrist.")
         sys.exit()
     print("Your health is now ", health, ".", sep="")
     part3_1_2 = input("Do you walk away or kill this old fool? (Walk/Kill)").lower()
@@ -104,7 +104,7 @@ elif squirrel == "walk":
         print ("As you quickly start to devore this carcass you don't even notice a snake bite your ankle.")
         health -= 12
         if health <= 0:
-            endofgame = input("You are out of health, you died.")
+            endofgame = input("You are out of health, you died from a snake bite.")
             sys.exit()
         print ("Your health is now ", health, ".", sep="")
     elif dog_carcass == "no":
@@ -117,7 +117,7 @@ if firstchoice == "tree":
     print ("You lose like, Idk 12 health? Maybe just 7. Yeah 7.")
     health -= 7
     if health <= 0:
-        endofgame = input("You are out of health, you died.")
+        endofgame = input("You are out of health, you died from root rot.")
         sys.exit()
     print ("Your health is now ", health, ".", sep="")
 
@@ -144,7 +144,7 @@ if part6 == "volkswagen":
     print ("You can't had a reasonable conversation with a car.")
     health -= 13
     if health <= 0:
-        endofgame = input("You are out of health, you died.")
+        endofgame = input("You are out of health, you died from attempting to socialize with an object.")
         sys.exit()
     print ("Your health is now ", health, ".", sep="")
 
@@ -152,7 +152,7 @@ elif part6 == "priest":
     print ("You wake up the next day sore in all the wrong places... Where even are you?")
     health -= 12
     if health <= 0:
-        endofgame = input("You are out of health, you died.")
+        endofgame = input("You are out of health, you died from butt stuff.")
         sys.exit()
     print ("Your health is now ", health, ".", sep="")
 
@@ -172,7 +172,7 @@ elif weapon == "sword":
     print ("He deflects your stab and slices off your manhood... Unless your a lady then you now have no tits...")
     health -= 17
     if health <= 0:
-        endofgame = input("You are out of health, you died.")
+        endofgame = input("You are out of health, you died a woman.")
         sys.exit()
     print ("Your health is now ", health, ".", sep="")
     print ("He now feels pity for you and you are free to go if you please.")
@@ -182,7 +182,7 @@ elif weapon == "sword":
         print ("Blood starts draining faster out of your body than before from the strain of the attack.")
         health -= 7
         if health <= 0:
-            endofgame = input("You are out of health, you died.")
+            endofgame = input("You are out of health, you died seeking revenge.")
             sys.exit()
         print ("Your health is now ", health, ".", " The moley man just walks away unscathed.", sep="")
 
@@ -190,7 +190,7 @@ else:
     print ("You go to stab the hairy figure with your spear but he just shoots you in the leg with a glock.")
     health -= 14
     if health <= 0:
-        endofgame = input("You are out of health, you died.")
+        endofgame = input("You are out of health, you died like a gangsta G.")
         sys.exit()
     print ("You have unestimated this hellish looking male. He leaves you be out of disgust for your lack of skill with your spear.")
     print ("Your health is now ", health, ".", sep="")
@@ -207,7 +207,7 @@ elif part8 == "play":
     health -= 9
     print ("You now are missing your pinky.")
     if health <= 0:
-        endofgame = input("You are out of health, you died.")
+        endofgame = input("You are out of health, you died from missing a pinky.")
         sys.exit()
     print ("Your health is now ", health, ".", sep="")
 
