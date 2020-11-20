@@ -10,7 +10,7 @@
 #    endofgame = input("You are out of health, you died.")
 #    sys.exit()
 
-squirrel = "walk"
+squirrel = "squirrel"
 health = 50
 
 print ("Welcome to Path II")
@@ -34,7 +34,8 @@ elif firstchoice == "tree":
 
 # Part Two
 
-endofgame = input("Press enter to continue ")
+if squirrel != "walk":
+    endofgame = input("Press enter to continue ")
 
 part2 = input("You walk up to a tent on the side of the path. Do you search it? (Yes/No) ").lower()
 if part2 == "yes":
@@ -56,15 +57,16 @@ if part2 == "yes":
 
 # Part three
 
-endofgame = input("Press enter to continue ")
+if part2 == "yes":
+    endofgame = input("Press enter to continue ")
 
 print ("Continuing on the path and you happen upon an old woman with a bag.")
 part3 = input("Do you talk to the woman, attempt to steal her bag or continue on your way? (Talk/Steal/Walk) ").lower()
 if part3 == "talk":
-    part3_1 = input('"Why hello there. I was looking for something to eat. Would you be so kind to help me get some?" (Yes/No) ').lower()
+    part3_1 = input('"Why hello there. I was looking for something to eat. Would you be so kind to find me something I could munch on?" (Yes/No) ').lower()
     if part3_1 == "yes":
         print ("You look around and see a tree with some fruit.")
-        print ("As you go to take some of the fruit but you see that there are worms in most of the it.")
+        print ("As you go to take some of the fruit you see that there are worms in most of the it.")
         print ("However you are barely able to reach for one that looks perfect.")
         part3_1_1 = input("Press Enter to continue. ")
         print ('"Oh why thank you for this fruit... What ever it is."')
@@ -214,7 +216,7 @@ endofgame = input("Press enter to continue ")
 print ("Well ", name, ", you have been walking for some time now. Not running into a single thing...", sep="")
 part8 = input("You are bored. Do you draw in the dirt, play with your weapon or just sit there. (Draw/Play/Sit) ").lower()
 if part8 == "draw":
-    print ("You draw various things in the dirt. This brings you out of your funk and are now ready to continue on.")
+    print ("You draw various things in the dirt. This brings you out of your funk and you are ready to continue on.")
 
 elif part8 == "play":
     print ("You start throwing your", weapon, "in the air but it lands on your hand.")
@@ -249,7 +251,97 @@ if part_9 == "poke":
     print ("It tastes like candy but its Kusco's poisen. ); Your health is now ", health, ".", sep="")
 
 else:
-    print ("You smack that green blob just right and it melts into a pond shaped like a llama.")
+    print ("You smack that blue blob just right and it melts into a pond shaped like a llama.")
+
+# Part Ten
+
+endofgame = input("Press enter to continue ")
+
+print ("Looks like the path ends, just leads into a lake.")
+part_10 = input("You can swim across, walk around the left side (forest) or the right side (takes longer) (Swim/Left/Right) ").lower()
+if part_10 == "left":
+    print ("Walking though the forest you encounter a mushroom. Kind of yellow and there is lots of it.")
+    part10_left = input("You notice it doesn't have any gills, Do you eat it? (Yes/No) ").lower()
+    if part10_left == "yes":
+        health += 3
+        print ("It tastes a little bit like chicken, your health is now ", health, ".", sep="")
+    else:
+        print ("Probably the best choice.")
+elif part_10 == "right":
+    print ("You must be the outdoorsy type. Wouldn't catch me going on a jog but you, your built different. ")
+    part10_right = input("Oh no, a bandit comes up behind you. He wants your money. Do you give him it? (Give/Fight) ").lower()
+    if part10_right == "give":
+        print ("You go to give him all 39 cents that you had in your pocket but he laughs and tells you to keep your money. ")
+        health -= 3
+        if health <= 0:
+            endofgame = input("You die of the shame of being too poor. ")
+            sys.exit()
+        print ("The shame you feel from being so poor hurts you. Your health is now, ", health, ".", sep="")
+    else:
+        print ("You land the first blow with your", weapon, "and wound his leg.")
+        print ('"Foolish outlander, I have nothing to lose."')
+        health -= 9
+        if health <= 0:
+            endofgame = input("The bandit gets you into an arm bar, you are so low on health already that this causes you to die. ): ")
+            sys.exit()
+        part10_right_1 = input("He throws a shuriken into your shoulder. Your health is now ", health, ".", " Do you continue to fight him? (Fight/Run) ", sep="").lower()
+        if part10_right_1 == "run":
+            health -= 9
+            if health <= 0:
+                endofgame = input("He throws another shuriken as you go to run away. You fall down and he slits your thoat. ")
+                sys.exit()
+            print ("As you run away he throws another shuriken at you. However you manage to get away. ")
+            print ("Your health is now ", health, ".", sep="")
+        else:
+            health -= 4
+            if health <= 0:
+                endofgame = input("You kill the bandit in a moment of rage but slip, hit your head on a rock and die. ")
+                sys.exit()
+            print ("You kill the bandit with your ", weapon, ".", sep="")
+            print ("Sadly you can't stand seeing any more death. This causes you to lose health because of depression.")
+            print ("Your health is now ", health, ".", sep="")
+else:
+    print ("As you are swimming across the lake you see a small shark. ")
+    part10_swim = input("Do you swim faster, attack the shark or try to feed the shark a piece of that dead dog from earlier? (Swim/attack/Feed) ").lower()
+    if part10_swim == "feed":
+        print ("The shark refuses your dead dog but thanks you for the offer. She tells you you are what you eat. ")
+        print ("She goes on to tell you she wants to be really fast so only eats fast stuff. ")
+        print ("The shark feels so warmed by your niceness that she helps push you the the other side of the lake. ")
+    elif part10_swim == "attack":
+        if weapon == "sword":
+            print ("You swing your sword like a knight slicing into the sharks gills. ")
+            health -= 14
+            if health <= 0:
+                print ("The shark bites off each of your limbs starting with the arm with the sword. ")
+                endofgame = input("You feel your lungs fill with water as you sink to the lakes bed all while you bleed out. ")
+                sys.exit()
+            print ("The sharks bits off your left foot and then she swims away stuggling to breath. ")
+            print ("Your health is now ", health, ".", sep="")
+        elif weapon == "big axe":
+            print ("You hack your axe away at the shark, taking off a good chunk. ")
+            health -= 15
+            if health <= 0:
+                endofgame = input("This angers the shark and she decides to bite your head clean off. Well not clean off, took like 3 bites. ")
+                sys.exit()
+            print ("This angers the shark and she bites your left foot clean off and swims away. ")
+            print ("Your health is now ", health, ".", sep="")
+        else:
+            print ("You stab the shark with your long spear, right in the dome.")
+            health -= 7
+            if health <= 0:
+                endofgame = input("She is still barely able to bite your let foot off, making you bleed out in the lake. ")
+                sys.exit()
+            print ("She is barely able to bite you before you twist the spear killing her.")
+            print ("Your health is now ", health, ".", sep="")
+    else:
+        print ("As you swim faster you notice the shark following you with a look in her eye. ")
+        health -= 20
+        if health <= 0:
+            endofgame = input("The shark gets up underneath you and disembowels you. You watch as she eats as much of you as possible. ")
+            sys.exit()
+        print ("She takes a bite out of your side and another out of your leg. You barely make it to shore. ")
+        print ("Your health is now ", health, ".", sep="")
+
 
 
 
